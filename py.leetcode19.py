@@ -59,7 +59,7 @@ if  __name__ == "__main__":
     a=listtolink([1,0,-1,0,-2,2])
     b=2
     
-    test
+    
     ret = Solution().removeNthFromEnd(a,b)
     out = listNodeToString(ret)
     
