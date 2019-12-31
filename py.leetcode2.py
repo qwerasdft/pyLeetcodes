@@ -11,36 +11,16 @@ class Solution:
         :type l2: ListNode
         :rtype: ListNode
         """
-        p = ListNode(0)
-        res=p
-        c=0
-        while (l1 != None)or (l2 != None) :
-            if l1 == None :
-                l1= ListNode(0)
-               
-            if l2 == None :
-                l2= ListNode(0)
-                
-                
-            tmp=ListNode((l1.val+l2.val+c)%10)
-            #print('aaa=',c)
-            c=(l1.val+l2.val+c)//10
-            #print('bbb=',c)
-            l1=l1.next
-            l2=l2.next
-            p.next=tmp
-            p=p.next
-            #print('ccc=',c)
-           
-        #print('ddd=',c)
-            
-        if c != 0 :
-            tmp = ListNode(c)
-            
-            p.next=tmp
-            p=p.next
-        
-        return res.next
+        dummy = tail = ListNode(0)
+        s = 0
+        while l1 or l2 or s:
+            s += (l1.val if l1 else 0) + (l2.val if l2 else 0)
+            tail.next = ListNode(s % 10)
+            tail = tail.next
+            s //= 10
+            l1 = l1.next if l1 else None
+            l2 = l2.next if l2 else None
+        return dummy.next
     
 def listtolk(ls):
     
