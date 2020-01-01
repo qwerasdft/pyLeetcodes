@@ -65,9 +65,11 @@ if  __name__ == "__main__":
     ans=[]
     for i,j in zip(a,b):
         if j:
-            ans.append(obj.__getattribute__(i)(j[0]))
+            # ans.append(obj.__getattribute__(i)(j[0]))
+            ans.append(getattr(obj,i,None)(j[0]))
         else:
-            ans.append(obj.__getattribute__(i)())
+            # ans.append(obj.__getattribute__(i)())
+            ans.append(getattr(obj,i,None)())
 
     print(ans)
 
