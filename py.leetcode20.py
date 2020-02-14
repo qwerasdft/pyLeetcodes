@@ -4,10 +4,10 @@
 #         self.next = None
 
 # def listtolink(ls):
-    
+
 #     head=ListNode(0)
 #     pre=head
-    
+
 #     for item in ls:
 #         head.next=ListNode(item)
 #         head=head.next
@@ -23,34 +23,32 @@
 #         node = node.next
 #     return "[" + result[:-2] + "]"
 
+
 class Solution:
     def isValid(self, s: 'str') -> 'bool':
-        #ind={'(':')',')':'(','[':']',']':'[','{':'}','}':'{'}
-        ind2={'(':-1,')':1,'[':-2,']':2,'{':-3,'}':3}
-        q=[]
+        # ind={'(':')',')':'(','[':']',']':'[','{':'}','}':'{'}
+        ind2 = {'(': -1, ')': 1, '[': -2, ']': 2, '{': -3, '}': 3}
+        q = []
         for c in s:
-            if ind2[c]>0:
+            if ind2[c] > 0:
                 if not q:
                     return False
                 else:
-                    a=q.pop()
+                    a = q.pop()
                     if ind2[a]+ind2[c] != 0:
                         return False
-                
+
             else:
                 q.append(c)
-        if len(q) !=0:
+        if len(q) != 0:
             return False
-        
+
         return True
 
 
-if  __name__ == "__main__":
-    a="()[]{}"
-    
+if __name__ == "__main__":
+    a = "()[]{}"
 
     ret = Solution().isValid(a)
-    
-    print(ret)
 
-            
+    print(ret)

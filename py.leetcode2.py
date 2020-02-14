@@ -4,6 +4,7 @@ class ListNode:
         self.val = x
         self.next = None
 
+
 class Solution:
     def addTwoNumbers(self, l1, l2):
         """
@@ -21,16 +22,18 @@ class Solution:
             l1 = l1.next if l1 else None
             l2 = l2.next if l2 else None
         return dummy.next
-    
+
+
 def listtolk(ls):
-    
-    head=ListNode(0)
-    pre=head
-    
+
+    head = ListNode(0)
+    pre = head
+
     for item in ls:
-        head.next=ListNode(item)
-        head=head.next
+        head.next = ListNode(item)
+        head = head.next
     return pre.next
+
 
 def listNodeToString(node):
     if not node:
@@ -42,14 +45,13 @@ def listNodeToString(node):
         node = node.next
     return "[" + result[:-2] + "]"
 
-if  __name__ == "__main__":
-    a=[2,4,3]
-    b=[5,6,4]
+
+if __name__ == "__main__":
+    a = [2, 4, 3]
+    b = [5, 6, 4]
     # test = Solution()
     la = listtolk(a)
     lb = listtolk(b)
-    ret = Solution().addTwoNumbers(la,lb)
+    ret = Solution().addTwoNumbers(la, lb)
     out = listNodeToString(ret)
     print(out)
-
-            

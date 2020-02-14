@@ -39,26 +39,27 @@ def stringToTreeNode(input):
             nodeQueue.append(node.right)
     return root
 
+
 class Solution:
     def inorderTraversal(self, root):
         """
         :type root: TreeNode
         :rtype: List[int]
         """
-        res=[]
-        stacks=[]
-        x=root
-        
+        res = []
+        stacks = []
+        x = root
+
         if not x:
             return []
-        
-        while x or stacks :
-            while x :
+
+        while x or stacks:
+            while x:
                 stacks.append(x)
                 x = x.left
-            x=stacks.pop()
+            x = stacks.pop()
             res.append(x.val)
-            x= x.right
+            x = x.right
         return res
 
     def inorderTraversal1(self, root):
@@ -67,26 +68,24 @@ class Solution:
         :rtype: List[int]
         """
 
-        res=[]
-        
-        
+        res = []
+
         def helper(aa):
             if not aa:
                 return
             helper(aa.left)
             res.append(aa.val)
             helper(aa.right)
-            
+
         helper(root)
         return res
-        
 
-    
-if  __name__ == "__main__":
-    a="[1,null,2,3]"
 
-    al=stringToTreeNode(a)
+if __name__ == "__main__":
+    a = "[1,null,2,3]"
+
+    al = stringToTreeNode(a)
 
     ret = Solution().inorderTraversal1(al)
-    
+
     print(ret)

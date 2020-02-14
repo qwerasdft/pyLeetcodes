@@ -4,10 +4,10 @@
 #         self.next = None
 
 # def listtolk(ls):
-    
+
 #     head=ListNode(0)
 #     pre=head
-    
+
 #     for item in ls:
 #         head.next=ListNode(item)
 #         head=head.next
@@ -22,6 +22,7 @@
 #         result += str(node.val) + ", "
 #         node = node.next
 #     return "[" + result[:-2] + "]"
+
 
 class Solution(object):
     def convert(self, s, numRows):
@@ -40,17 +41,16 @@ class Solution(object):
             L[index] += x
             if index == 0:
                 step = 1
-            elif index == numRows -1:
+            elif index == numRows - 1:
                 step = -1
             index += step
-        
+
         return ''.join(L)
 
-if  __name__ == "__main__":
-    a="PAYPALISHIRING"
 
-    ret = Solution().convert(a,4)
-    
+if __name__ == "__main__":
+    a = "PAYPALISHIRING"
+
+    ret = Solution().convert(a, 4)
+
     print(ret)
-
-            

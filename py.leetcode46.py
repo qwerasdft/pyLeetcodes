@@ -4,10 +4,10 @@
 #         self.next = None
 
 # def listtolink(ls):
-    
+
 #     head=ListNode(0)
 #     pre=head
-    
+
 #     for item in ls:
 #         head.next=ListNode(item)
 #         head=head.next
@@ -24,17 +24,17 @@
 #     return "[" + result[:-2] + "]"
 
 
-
 def insert_x(x, a):
-    return [a[:i] + [x] + a[i:] for i in range(len(a) +1)] 
-        
-    
+    return [a[:i] + [x] + a[i:] for i in range(len(a) + 1)]
+
+
 class Solution:
     """
     Given a collection of distinct integers, return all possible permutations.
 
 
     """
+
     def permute(self, nums):
         """
         :type nums: List[int]
@@ -50,14 +50,9 @@ class Solution:
         return res
 
 
-
-if  __name__ == "__main__":
-    a=[1,2,3]
-    
+if __name__ == "__main__":
+    a = [1, 2, 3]
 
     ret = Solution().permute(a)
-    
-    print(ret)
-    
 
-            
+    print(ret)

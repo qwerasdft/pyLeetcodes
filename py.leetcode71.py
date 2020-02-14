@@ -4,10 +4,10 @@
 #         self.next = None
 
 # def listtolink(ls):
-    
+
 #     head=ListNode(0)
 #     pre=head
-    
+
 #     for item in ls:
 #         head.next=ListNode(item)
 #         head=head.next
@@ -24,31 +24,27 @@
 #     return "[" + result[:-2] + "]"
 
 
-
 class Solution(object):
     def simplifyPath(self, path):
-        a=path.split('/')
-        ans=[]
+        a = path.split('/')
+        ans = []
         for i in a:
-            if i=="" or i=='.':
+            if i == "" or i == '.':
                 continue
-            elif i=='..':
+            elif i == '..':
                 try:
                     ans.pop()
                 except:
                     pass
             else:
                 ans.append(i)
-        
+
         return '/'+'/'.join(ans)
 
 
-if  __name__ == "__main__":
-    a="/home//foo/"
+if __name__ == "__main__":
+    a = "/home//foo/"
 
     ret = Solution().simplifyPath(a)
-    
-    print(ret)
-    
 
-            
+    print(ret)

@@ -38,7 +38,8 @@ def stringToTreeNode(input):
             node.right = TreeNode(rightNumber)
             nodeQueue.append(node.right)
     return root
-    
+
+
 class Solution:
     def rightSideView(self, root):
         """
@@ -50,37 +51,35 @@ class Solution:
           1            <---
         /      
        2     3         <---
-              
+
          5     4       <---
         """
         if not root:
             return []
-        
-        def helper(r,lev):
+
+        def helper(r, lev):
             if len(res) < lev:
-              
+
                 res.append(r.val)
-                
+
             if r.right:
-                helper(r.right,lev+1)
+                helper(r.right, lev+1)
             if r.left:
-                helper(r.left,lev+1)
-            
-        
-        res=[]
-       
-        
-        helper(root,1)
-        
+                helper(r.left, lev+1)
+
+        res = []
+
+        helper(root, 1)
+
         return res
-        #return [res[x][-1] for x in range(len(res))]
+        # return [res[x][-1] for x in range(len(res))]
 
 
-if  __name__ == "__main__":
-    a="[1,2,3,null,5,null,4]"
+if __name__ == "__main__":
+    a = "[1,2,3,null,5,null,4]"
 
-    al=stringToTreeNode(a)
+    al = stringToTreeNode(a)
 
     ret = Solution().rightSideView(al)
-    
+
     print(ret)

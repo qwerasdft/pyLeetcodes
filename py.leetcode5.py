@@ -4,10 +4,10 @@
 #         self.next = None
 
 # def listtolk(ls):
-    
+
 #     head=ListNode(0)
 #     pre=head
-    
+
 #     for item in ls:
 #         head.next=ListNode(item)
 #         head=head.next
@@ -30,7 +30,7 @@ class Solution:
         :type s: str
         :rtype: str
         """
-      
+
         l = len(s)
         if s == None or l == 0:
             return ""
@@ -42,10 +42,10 @@ class Solution:
                 p[i] = 1
             else:
                 p[i] = min(p[2 * pos - i], mx - i)
-            
+
             while i - p[i] >= 0 and i + p[i] < nl and self.get(s, i + p[i]) == self.get(s, i - p[i]):
                 p[i] += 1
-            
+
             if p[i] + i - 1 > mx:
                 mx = p[i] + i - 1
                 pos = i
@@ -60,13 +60,12 @@ class Solution:
         if i % 2 == 0:
             return "#"
         else:
-            return s[i // 2]  
- 
-if  __name__ == "__main__":
-    a="babad"
+            return s[i // 2]
 
-    ret = Solution().longestPalindrome(a )
-    
+
+if __name__ == "__main__":
+    a = "babad"
+
+    ret = Solution().longestPalindrome(a)
+
     print(ret)
-
-            

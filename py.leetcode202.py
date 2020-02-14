@@ -10,15 +10,13 @@ class Solution:
         does not include 1. Those numbers for which this process ends in 1 are happy
         """
         cycle = set()
-        while n!=1 and n not in cycle:
+        while n != 1 and n not in cycle:
             cycle.add(n)
-            n= sum(int(i)**2 for i in str(n))
-        return n==1
-        
+            n = sum(int(i)**2 for i in str(n))
+        return n == 1
 
-if  __name__ == "__main__":
-    a=19
-    
+
+if __name__ == "__main__":
+    a = 19
 
     print(Solution().isHappy(a))
-

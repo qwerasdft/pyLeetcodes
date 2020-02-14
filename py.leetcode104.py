@@ -1,4 +1,7 @@
 
+from collections import deque
+
+
 class TreeNode:
     def __init__(self, x):
         self.val = x
@@ -38,33 +41,32 @@ def stringToTreeNode(input):
             node.right = TreeNode(rightNumber)
             nodeQueue.append(node.right)
     return root
-    
-from collections import deque
+
 
 class Solution:
     def maxDepth(self, root: TreeNode) -> int:
-        ans =0
-        if not root :
+        ans = 0
+        if not root:
             return ans
 
-        def help(root,level):
+        def help(root, level):
             nonlocal ans
             if root.left:
-                ans = max(ans,help(root.left,level+1))
+                ans = max(ans, help(root.left, level+1))
             if root.right:
-                ans = max(ans,help(root.right,level+1))
-            return max(ans,level)
-            
+                ans = max(ans, help(root.right, level+1))
+            return max(ans, level)
 
-        ans = help(root,1)
+        ans = help(root, 1)
 
         return ans
 
-if  __name__ == "__main__":
-    a="[3,9,20,null,null,15,7]"
 
-    al=stringToTreeNode(a)
+if __name__ == "__main__":
+    a = "[3,9,20,null,null,15,7]"
+
+    al = stringToTreeNode(a)
 
     ret = Solution().maxDepth(al)
-    
+
     print(ret)

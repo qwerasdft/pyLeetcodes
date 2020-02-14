@@ -1,4 +1,7 @@
 
+from collections import deque
+
+
 class TreeNode:
     def __init__(self, x):
         self.val = x
@@ -38,27 +41,26 @@ def stringToTreeNode(input):
             node.right = TreeNode(rightNumber)
             nodeQueue.append(node.right)
     return root
-    
-from collections import deque
+
+
 class Solution:
     def levelOrder(self, root):
         """
         :type root: TreeNode
         :rtype: List[List[int]]
         """
-        
-        res=[]
+
+        res = []
         if not root:
             return res
         quroot = deque()
         quroot.append(root)
-        
-        
+
         while quroot:
-            temp=[]
-            tempq=[]
+            temp = []
+            tempq = []
             while quroot:
-                fistvalue=quroot.popleft()
+                fistvalue = quroot.popleft()
                 temp.append(fistvalue.val)
                 if fistvalue.left:
                     tempq.append(fistvalue.left)
@@ -66,14 +68,15 @@ class Solution:
                     tempq.append(fistvalue.right)
             res.append(temp)
             quroot.extend(tempq)
-        
-        return  res
 
-if  __name__ == "__main__":
-    a="[3,9,20,null,null,15,7]"
+        return res
 
-    al=stringToTreeNode(a)
+
+if __name__ == "__main__":
+    a = "[3,9,20,null,null,15,7]"
+
+    al = stringToTreeNode(a)
 
     ret = Solution().levelOrder(al)
-    
+
     print(ret)

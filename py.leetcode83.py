@@ -3,15 +3,17 @@ class ListNode:
         self.val = x
         self.next = None
 
+
 def listtolink(ls):
-    
-    head=ListNode(0)
-    pre=head
-    
+
+    head = ListNode(0)
+    pre = head
+
     for item in ls:
-        head.next=ListNode(item)
-        head=head.next
+        head.next = ListNode(item)
+        head = head.next
     return pre.next
+
 
 def listNodeToString(node):
     if not node:
@@ -23,34 +25,32 @@ def listNodeToString(node):
         node = node.next
     return "[" + result[:-2] + "]"
 
+
 class Solution:
     def deleteDuplicates(self, head: ListNode) -> ListNode:
-        start=head
-        prehead=head
+        start = head
+        prehead = head
 
         if not head:
             return head
-        
-       
 
         while head:
-            head=head.next
+            head = head.next
             while head and (head.val == prehead.val):
                 head = head.next
 
-            prehead.next=head
-            prehead=prehead.next
+            prehead.next = head
+            prehead = prehead.next
             # head=head.next
-        
-        return  start
-        
 
-    
-if  __name__ == "__main__":
-    a=[1,1,2,2,2,2,3,4,5,5,5,5]
+        return start
 
-    al=listtolink(a)
+
+if __name__ == "__main__":
+    a = [1, 1, 2, 2, 2, 2, 3, 4, 5, 5, 5, 5]
+
+    al = listtolink(a)
 
     ret = Solution().deleteDuplicates(al)
-    
+
     print(listNodeToString(ret))

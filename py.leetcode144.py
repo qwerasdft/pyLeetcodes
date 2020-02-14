@@ -38,7 +38,7 @@ def stringToTreeNode(input):
             node.right = TreeNode(rightNumber)
             nodeQueue.append(node.right)
     return root
-    
+
 
 class Solution:
     def preorderTraversal(self, root):
@@ -46,23 +46,22 @@ class Solution:
         :type root: TreeNode
         :rtype: List[int]
         """
-        res=[]
-        stacks=[]
-        x=root
-        if not x :
+        res = []
+        stacks = []
+        x = root
+        if not x:
             return res
-        
-        
+
         while x or stacks:
             if x:
                 res.append(x.val)
                 stacks.append(x)
-                x=x.left
+                x = x.left
             else:
-                x=stacks.pop()
-                x=x.right
-                #if x:
-                    #res.append(x.val)
+                x = stacks.pop()
+                x = x.right
+                # if x:
+                # res.append(x.val)
         return res
 
     def preorderTraversal1(self, root):
@@ -70,32 +69,30 @@ class Solution:
         :type root: TreeNode
         :rtype: List[int]
         """
-        res=[]
-        stacks=[]
-        x=root
-        if not x :
+        res = []
+        stacks = []
+        x = root
+        if not x:
             return res
-        
-         
+
         while x or stacks:
             while x:
                 res.append(x.val)
                 stacks.append(x)
-                x=x.left
-            
-            x=stacks.pop()
-            x=x.right
-                #if x:
-                    #res.append(x.val)
+                x = x.left
+
+            x = stacks.pop()
+            x = x.right
+            # if x:
+            # res.append(x.val)
         return res
 
 
+if __name__ == "__main__":
+    a = "[1,null,2,3]"
 
-if  __name__ == "__main__":
-    a="[1,null,2,3]"
-
-    al=stringToTreeNode(a)
+    al = stringToTreeNode(a)
 
     ret = Solution().preorderTraversal1(al)
-    
+
     print(ret)

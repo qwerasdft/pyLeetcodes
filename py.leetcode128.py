@@ -38,12 +38,12 @@
 #             node.right = TreeNode(rightNumber)
 #             nodeQueue.append(node.right)
 #     return root
-    
+
 class Solution:
     def longestConsecutive(self, nums: "List[int]") -> int:
-        numset=set(nums)
-        
-        long=0
+        numset = set(nums)
+
+        long = 0
         for num in nums:
             """
             #如果num-1存在,表示這num不是連續數字的開頭
@@ -51,21 +51,21 @@ class Solution:
             """
             if num-1 in numset:
                 continue
-            
-            count=0
+
+            count = 0
             while num in numset:
-                
-                count+=1
-                num+=1
-            
-            long=long if long>count else count
-        
+
+                count += 1
+                num += 1
+
+            long = long if long > count else count
+
         return long
-        
-if  __name__ == "__main__":
-    a=[100,4,200,1,3,2]
-   
+
+
+if __name__ == "__main__":
+    a = [100, 4, 200, 1, 3, 2]
 
     ret = Solution().longestConsecutive(a)
-    
+
     print(ret)

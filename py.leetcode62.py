@@ -4,10 +4,10 @@
 #         self.next = None
 
 # def listtolink(ls):
-    
+
 #     head=ListNode(0)
 #     pre=head
-    
+
 #     for item in ls:
 #         head.next=ListNode(item)
 #         head=head.next
@@ -31,27 +31,21 @@ class Solution:
         :type n: int
         :rtype: int
         """
-        
-        ans=[[0]*m for i in range(n)]
-        
-        
+
+        ans = [[0]*m for i in range(n)]
+
         for j in range(m):
             for i in range(n):
-                if i==0 or j==0:
-                    ans[i][j]=1
+                if i == 0 or j == 0:
+                    ans[i][j] = 1
                 else:
-                    ans[i][j]=ans[i-1][j]+ans[i][j-1]
-        
-        
+                    ans[i][j] = ans[i-1][j]+ans[i][j-1]
+
         return ans[n-1][m-1]
 
-if  __name__ == "__main__":
-    
 
+if __name__ == "__main__":
 
-    ret = Solution().uniquePaths(4,3)
-    
+    ret = Solution().uniquePaths(4, 3)
+
     print(ret)
-    
-
-            

@@ -4,10 +4,10 @@
 #         self.next = None
 
 # def listtolink(ls):
-    
+
 #     head=ListNode(0)
 #     pre=head
-    
+
 #     for item in ls:
 #         head.next=ListNode(item)
 #         head=head.next
@@ -23,7 +23,9 @@
 #         node = node.next
 #     return "[" + result[:-2] + "]"
 
-# Binary search  
+# Binary search
+
+
 class Solution:
     def mySqrt(self, x):
         l, r = 0, x
@@ -34,15 +36,11 @@ class Solution:
             elif x < mid * mid:
                 r = mid
             else:
-                l = mid + 1     
+                l = mid + 1
 
 
-if  __name__ == "__main__":
-    
+if __name__ == "__main__":
 
     ret = Solution().mySqrt(9)
-    
-    print(ret)
-    
 
-            
+    print(ret)

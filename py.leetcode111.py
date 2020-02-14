@@ -38,35 +38,34 @@ def stringToTreeNode(input):
             node.right = TreeNode(rightNumber)
             nodeQueue.append(node.right)
     return root
-    
+
 
 class Solution:
     def minDepth(self, root: TreeNode) -> int:
-        ans =float('inf')
-        if not root :
+        ans = float('inf')
+        if not root:
             return 0
 
-        def help(root,level):
+        def help(root, level):
             nonlocal ans
             if root.left:
-                help(root.left,level+1)
+                help(root.left, level+1)
             if root.right:
-                help(root.right,level+1)
+                help(root.right, level+1)
 
             if not root.left and not root.right:
-                ans = min(ans,level)
-            
-            
+                ans = min(ans, level)
 
-        help(root,1)
-        
+        help(root, 1)
+
         return ans
 
-if  __name__ == "__main__":
-    a="[3,9,20,null,null,15,7]"
 
-    al=stringToTreeNode(a)
+if __name__ == "__main__":
+    a = "[3,9,20,null,null,15,7]"
+
+    al = stringToTreeNode(a)
 
     ret = Solution().minDepth(al)
-    
+
     print(ret)

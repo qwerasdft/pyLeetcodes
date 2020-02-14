@@ -4,10 +4,10 @@
 #         self.next = None
 
 # def listtolink(ls):
-    
+
 #     head=ListNode(0)
 #     pre=head
-    
+
 #     for item in ls:
 #         head.next=ListNode(item)
 #         head=head.next
@@ -26,8 +26,10 @@
 
 class Solution:
     def myPow(self, a, b):
-        if b == 0: return 1
-        if b < 0: return 1.0 / self.myPow(a, -b)
+        if b == 0:
+            return 1
+        if b < 0:
+            return 1.0 / self.myPow(a, -b)
         half = self.myPow(a, b // 2)
         if b % 2 == 0:
             return half * half
@@ -55,13 +57,10 @@ class Solution:
             # 当b为基数的时候，比如 2 ^ 25，拆分的时候就变成 (2 ^12) * (2 ^ 12) * 2
             # 当b为负数的时候，返回 1.0 / self.myPow(a, -b)
 
-if  __name__ == "__main__":
-    a=[1,2,1,2]
-    
 
-    ret = Solution().myPow(2,4)
-    
+if __name__ == "__main__":
+    a = [1, 2, 1, 2]
+
+    ret = Solution().myPow(2, 4)
+
     print(ret)
-    
-
-            
